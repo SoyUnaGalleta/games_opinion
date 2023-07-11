@@ -1,11 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import ListaJuegos from '../views/ListaJuegos.vue'
+import NotFound from '@/components/NotFound.vue'
+import Opiniones from '@/views/Opiniones.vue'
+import Administracion from '@/components/Administracion.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'listajuegos',
+    component: ListaJuegos
+  },
+  {
+    path: '/opiniones/:nombre',
+    name: 'opiniones',
+    component: Opiniones,
+    props: true,
+  },
+  {
+    path: '/administracion/:nombre',
+    name: 'Administracion',
+    component: Administracion,
+    props: true,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: 'notfound',
+    component: NotFound
   },
   {
     path: '/about',
